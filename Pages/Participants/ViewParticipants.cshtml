@@ -1,0 +1,49 @@
+﻿@page
+@model RIK_Prooviülesanne__Taavi_Lepiko.Pages.Participants.ViewParticipantsModel
+@{
+}
+
+<br />
+<h2>Lisa Osaleja!</h2>
+
+@if (Model.errorMessage.Length > 0)
+{
+		<div class="alert alert-warning alert-dismissible fade show" role="alert">
+			<strong>@Model.errorMessage</strong>
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		</div>
+}
+
+<div>
+	<p>@Model.eventInfo.ENAME</p>
+	<p>@Model.eventInfo.ETIME</p>
+	<p>@Model.eventInfo.ELOCATION</p>
+</div>
+
+<table class="table">
+	<thead>
+			Osavõtjad
+	</thead>
+	<tbody>
+		@foreach (var item in Model.listParticipants)
+		{
+				<tr>
+					<td>@item.PNAME</td>
+					<td>@item.PCODE</td>
+					@if (DateTime.Parse(Model.eventInfo.ETIME) > DateTime.Now)
+					{
+						<td>
+							<a class="btn btn-danger btn-sm" href="/Participants/RemoveParticipants?id=@item.PID&eid=@Model.eventInfo.EID">Kustuta</a>
+						</td>
+					}
+				</tr>
+		}
+	</tbody>
+</table>
+
+
+	<div class="row mb-3">
+		<div class="col-sm-3 d-grid">
+			<a class="btn btn-secondary" href="/" role="button">Tagasi</a>
+		</div>
+	</div>

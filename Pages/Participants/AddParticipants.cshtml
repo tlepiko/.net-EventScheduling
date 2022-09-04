@@ -1,0 +1,71 @@
+﻿@page
+@model RIK_Prooviülesanne__Taavi_Lepiko.Pages.Participants.AddParticipantsModel
+@{
+}
+
+<br />
+<h2>Lisa Osaleja!</h2>
+
+@if (Model.errorMessage.Length > 0)
+{
+		<div class="alert alert-warning alert-dismissible fade show" role="alert">
+			<strong>@Model.errorMessage</strong>
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		</div>
+}
+
+<div>
+	<p>@Model.eventInfo.ENAME</p>
+	<p>@Model.eventInfo.ETIME</p>
+	<p>@Model.eventInfo.ELOCATION</p>
+</div>
+
+
+<form method="POST">
+	<input type="hidden" name="eventId" value="@Model.eventInfo.EID" />
+	<div class="row mb-3">
+		<label class="col-sm-3 col-form-label">Nimi</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" name="participantName" value="" />
+		</div>
+	</div>
+	<div class="row mb-3">
+		<label class="col-sm-3 col-form-label">Isukukood</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" name="participantCode" value="" />
+		</div>
+	</div>
+	<div class="row mb-3">
+		<label class="col-sm-3 col-form-label">Makseviis</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" name="participantPayment" value="" />
+		</div>
+	</div>
+	<div class="row mb-3">
+		<label class="col-sm-3 col-form-label">Lisainfo</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" name="participantExtraInfo" value="" />
+		</div>
+	</div>
+
+	@if (Model.successMessage.Length > 0)
+	{
+			<div class="row mb-3">
+				<div class="col-sm-9">
+					<div class="alert alert-success alert-dismissible fade show" role="alert">
+						<strong>@Model.successMessage</strong>
+						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+					</div>
+				</div>
+			</div>
+	}
+
+	<div class="row mb-3">
+		<div class="offset-sm-3 col-sm-3 d-grid">
+			<button type="submit" class="btn btn-primary">Lisa osaleja</button>
+		</div>
+		<div class="col-sm-3 d-grid">
+			<a class="btn btn-secondary" href="/" role="button">Tagasi</a>
+		</div>
+	</div>
+</form>
