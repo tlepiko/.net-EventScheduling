@@ -5,7 +5,7 @@ using System.Reflection;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace RIK_prooviülesanne.Pages.Events
+namespace RIK_Prooviülesanne__Taavi_Lepiko.Pages.Events
 {
     public class CreateModel : PageModel
     {
