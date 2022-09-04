@@ -1,0 +1,30 @@
+﻿@page
+@model RIK_Prooviülesanne__Taavi_Lepiko.Pages.Events.RemoveEventModel
+@using System.Data.SqlClient
+@{
+    String id = Request.Query["id"];
+    try
+    {
+        String connectionString = "Data Source=(localdb)\\BluePrismLocalDB;Initial Catalog=Prooviylesanne;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            connection.Open();
+            String sql = "DELETE FROM Events WHERE EID = @eventId;" +
+                         "DELETE FROM Participants WHERE EID = @eventId;";
+
+            using (SqlCommand command = new SqlCommand(sql, connection))
+            {
+                command.Parameters.AddWithValue("@eventId", id);
+
+                command.ExecuteNonQuery();
+            }
+
+        }
+    }
+    catch (Exception)
+    {
+        return;
+    }
+    Response.Redirect("/Index");
+}
+}

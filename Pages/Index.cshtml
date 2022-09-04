@@ -29,6 +29,19 @@
             <h5 class="card-header custom1 rounded-0 text-center text-white">Tulevad üritused</h5>
                 <table class="table bg-white card-text text-break border-white">
                     <tbody>
+                    @foreach (var item in Model.listEvents)
+                    {
+                                <tr>
+                                    <td>@item.queueNumber.</td>
+                                    <td><a class="text-decoration-none text-secondary fw-bold" href="/Participants/ViewParticipants?id=@item.EID">@item.ENAME</a></td>
+                                    <td>@item.ETIME</td>
+                                    <td>@item.ELOCATION</td>
+                                    <td>
+                                        <a class="text-decoration-none text-secondary fw-bold" href="/Participants/AddParticipants?id=@item.EID">Lisa osavõtja</a>
+                                        <a href="/Events/RemoveEvent?id=@item.EID"><img src="/img/remove.svg" style="height:19px; width: 19px;"  alt="Kustuta"></a>
+                                    </td>
+                                </tr>
+                    }
                     </tbody>
                 </table>
         </div>
@@ -36,6 +49,15 @@
             <h5 class="card-header custom1 rounded-0 text-center text-white">Toimunud üritused</h5>
                 <table class="table bg-white card-text text-break border-white">
                     <tbody class="">
+                    @foreach (var item in Model.listEvents2)
+                    {
+                                    <tr class="">
+                                        <td>@item.queueNumber.</td>
+                                        <td><a class="text-decoration-none text-secondary fw-bold" href="/Participants/ViewParticipants?id=@item.EID">@item.ENAME</a></td>
+                                        <td>@item.ETIME</td>
+                                        <td>@item.ELOCATION</td>
+                                    </tr>
+                    }
                     </tbody>
                 </table>
         </div>
