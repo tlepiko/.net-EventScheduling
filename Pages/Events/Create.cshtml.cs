@@ -1,7 +1,6 @@
 using System;
 using System.Data;
 using System.Data.SqlClient;
-using System.Reflection;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -27,6 +26,7 @@ namespace RIK_Prooviülesanne__Taavi_Lepiko.Pages.Events
 
             if (eventInfo.ENAME.Length == 0 || eventInfo.ELOCATION.Length == 0 || eventInfo.EEXTRAINFO.Length == 0)
             {
+
                 errorMessage = "Kõik väljad peavad olema täidetud";
                 return;
             }
@@ -70,15 +70,5 @@ namespace RIK_Prooviülesanne__Taavi_Lepiko.Pages.Events
 
             Response.Redirect("/Index");
         }
-    }
-
-    public class EventInfo
-    {
-        public String EID = "";
-        public String ENAME = "";
-        public String ETIME = "";
-        public String ELOCATION = "";
-        public String EEXTRAINFO = "";
-
     }
 }

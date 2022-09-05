@@ -1,9 +1,15 @@
 using System.Data.SqlClient;
+using System.Net.Security;
+using System.Reflection.Emit;
+using System.Security.Cryptography;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using RIK_Prooviülesanne__Taavi_Lepiko.Pages;
 
 namespace RIK_Prooviülesanne__Taavi_Lepiko.Pages.Participants
 {
+    //Osalejate lisamise klassi algus. Parameetri 'id' abil tuuakse asjakohase ürituse andmed andmebaasist.
     public class AddParticipantsModel : PageModel
     {
         public List<ParticipantInfo> listParticipants = new List<ParticipantInfo>();
@@ -65,6 +71,7 @@ namespace RIK_Prooviülesanne__Taavi_Lepiko.Pages.Participants
             }
         }
 
+        //Kasutaja lisamise vormi täitmisel kontrollitakse kohustuslike välja täitmist ja ka isikukoodi õigsust.
         public void OnPost()
         {
             participantInfo.PNAME = Request.Form["participantName"];
@@ -75,9 +82,68 @@ namespace RIK_Prooviülesanne__Taavi_Lepiko.Pages.Participants
 
             if (participantInfo.PNAME.Length == 0)
             {
-                errorMessage = "Kõik väljad tuleb täita";
+                errorMessage = "Nimi on kohustuslik väli";
                 return;
             }
+            if (participantInfo.PCODE.Length != 11 || participantInfo.PCODE.Length == 0)
+            {
+                errorMessage = "Vale isikukood";
+                return;
+            }
+            else
+            {
+                try
+                {
+
+                    int century = 0;
+
+                    switch (participantInfo.PCODE[0])
+                    {
+                        case '1':
+                        case '2':
+                            {
+                                century = 1800;
+                                errorMessage = "Vale isikukood";
+                                return;
+                            }
+                        case '3':
+                        case '4':
+                            {
+                                century = 1900;
+                                break;
+                            }
+                        case '5':
+                        case '6':
+                            {
+                                century = 2000;
+                                break;
+                            }
+                        default:
+                            {
+                                errorMessage = "Vale isikukood";
+                                return;
+                            }
+                    }
+
+                    string s = participantInfo.PCODE.Substring(5, 2) + "." +
+                        participantInfo.PCODE.Substring(3, 2) + "." +
+                        Convert.ToString(century + Convert.ToInt32(participantInfo.PCODE.Substring(1, 2)));
+
+                    DateTime dt;
+                    if (!DateTime.TryParse(s, out dt))
+                    {
+                        errorMessage = "Vale isikukood";
+                        return;
+                    }
+                }
+
+                catch
+                {
+                    return;
+                }
+            }
+
+
 
             try
             {
@@ -106,7 +172,7 @@ namespace RIK_Prooviülesanne__Taavi_Lepiko.Pages.Participants
                 errorMessage = ex.Message;
             }
             String id = Request.Query["id"];
-            Response.Redirect("/Participants/AddParticipants?id=" + @id);
+            Response.Redirect("/Participants/ViewParticipants?id=" + @id);
         }
     }
 }

@@ -81,5 +81,6 @@ namespace RIK_Prooviülesanne__Taavi_Lepiko.Pages
         public String PCODE = "";
         public String PPAYMENT = "";
         public String PINFO = "";
+        public String CNAME = "";
     }
 }
