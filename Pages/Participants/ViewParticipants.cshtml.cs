@@ -7,6 +7,8 @@ using RIK_Prooviülesanne__Taavi_Lepiko.Pages;
 
 namespace RIK_Prooviülesanne__Taavi_Lepiko.Pages.Participants
 {
+    //Osalejate nimekirja koostamise funktsioon. Funktsioon korjab andmebaasist kokku osalejad vastavalt ürituse tunnusele, ning väljastab konkreetse ürituse
+    // osalejad Participants/ViewParticipants vaates.
     public class ViewParticipantsModel : PageModel
     {
         public List<ParticipantInfo> listParticipants = new List<ParticipantInfo>();

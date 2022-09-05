@@ -2,6 +2,9 @@
 @model RIK_Prooviülesanne__Taavi_Lepiko.Pages.Events.RemoveEventModel
 @using System.Data.SqlClient
 @{
+
+    //Ürituse kustutamisfunktsioon, eraldi vaade puudub, toimib läbi pealehel olevate X nuppude. Kustutab nii ürituse kui ka sellega seotud osalejad.
+
     String id = Request.Query["id"];
     try
     {

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace RIK_Prooviülesanne__Taavi_Lepiko.Pages.Events
 {
+
     public class CreateModel : PageModel
     {
         public EventInfo eventInfo = new EventInfo();
@@ -13,10 +14,12 @@ namespace RIK_Prooviülesanne__Taavi_Lepiko.Pages.Events
         public String errorMessage = "";
 
         public String successMessage = "";
+
+        //Ürituse loomise funktsioon, võtab /Events/Create vormilt andmed, kontrollib neid ning seejärel kannab andmebaasi.
         public void OnGet()
         {
         }
-
+        
         public void OnPost()
         {
             eventInfo.ENAME = Request.Form["eventName"];

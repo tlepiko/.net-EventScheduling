@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace RIK_Prooviülesanne__Taavi_Lepiko.Pages
 {
+    //Funktsioon ürituse kuvamiseks, funktsioon otsib välja kõik üritused ning sorteerib need vastavalt kuupäevale kas 'Toimunud üritused' või 'Tulevad üritused' alla. 
     public class IndexModel : PageModel
     {
         public List<EventInfo> listEvents = new List<EventInfo>();
