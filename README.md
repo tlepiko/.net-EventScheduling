@@ -12,4 +12,4 @@ Funktsioonid:
 
 Vajalikud lisad toimimiseks: System.Data.SqlClient
 
-Andmebaasi diagramm asub Diagramm kaustas.
+Andmebaasi diagramm asub Andmebaasi Diagramm kaustas.
