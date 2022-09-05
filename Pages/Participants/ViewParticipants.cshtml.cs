@@ -3,6 +3,7 @@ using System.Net.Security;
 using System.Security.Cryptography;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using RIK_Prooviülesanne__Taavi_Lepiko.Pages;
 
 namespace RIK_Prooviülesanne__Taavi_Lepiko.Pages.Participants
 {
@@ -69,6 +70,7 @@ namespace RIK_Prooviülesanne__Taavi_Lepiko.Pages.Participants
 
         public void OnPost()
         {
+
         }
     }
 }

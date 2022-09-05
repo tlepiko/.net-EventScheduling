@@ -4,7 +4,7 @@
 }
 
 <br />
-<h2>Lisa Osaleja!</h2>
+<h2>Osalejate nimekiri</h2>
 
 @if (Model.errorMessage.Length > 0)
 {
@@ -14,15 +14,17 @@
 		</div>
 }
 
-<div>
+<div classclass="bg-white">
+<div class="bg-white">
 	<p>@Model.eventInfo.ENAME</p>
 	<p>@Model.eventInfo.ETIME</p>
 	<p>@Model.eventInfo.ELOCATION</p>
 </div>
 
-<table class="table">
+<div class="bg-white">
+<table class="table bg-white">
 	<thead>
-			Osavõtjad
+			<tr class="fs-3 bg-white">Osavõtjad</tr>
 	</thead>
 	<tbody>
 		@foreach (var item in Model.listParticipants)
@@ -40,10 +42,12 @@
 		}
 	</tbody>
 </table>
+</div>
 
 
 	<div class="row mb-3">
 		<div class="col-sm-3 d-grid">
 			<a class="btn btn-secondary" href="/" role="button">Tagasi</a>
 		</div>
+	</div>
 	</div>
