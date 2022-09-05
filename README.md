@@ -11,3 +11,5 @@ Funktsioonid:
 -Ürituste ja osalejate kuvamine
 
 Vajalikud lisad toimimiseks: System.Data.SqlClient
+
+Andmebaasi diagramm asub Diagramm kaustas.
