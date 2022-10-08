@@ -1,4 +1,4 @@
-# RIK Prooviülesanne -Taavi Lepiko
+# .net Üritused -Taavi Lepiko
 
 Külaliste ja ürituste registreerimiseks mõeldud veebirakendus.
 
@@ -11,5 +11,3 @@ Funktsioonid:
 -Ürituste ja osalejate kuvamine
 
 Vajalikud lisad toimimiseks: System.Data.SqlClient
-
-Andmebaasi diagramm asub Andmebaasi Diagramm kaustas.
